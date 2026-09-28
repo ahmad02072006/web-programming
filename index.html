@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Akhmad's Web Programming coursework, organized by week.">
+  <title>Web Programming | Course Archive</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18332d;
+      --muted: #66756f;
+      --paper: #f6f7f1;
+      --surface: #fffefa;
+      --line: #dce3d9;
+      --green: #1e5948;
+      --lime: #d9ef75;
+      --coral: #d75f43;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .masthead {
+      padding: 22px max(24px, calc((100vw - 1080px) / 2));
+      border-bottom: 1px solid rgba(255, 255, 255, .2);
+      background: var(--green);
+      color: white;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 30px;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--ink);
+      font-size: 13px;
+    }
+
+    main {
+      width: min(100% - 40px, 960px);
+      margin: 0 auto;
+      padding: 72px 0 80px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin-bottom: 42px;
+      animation: arrive .45s ease-out both;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 68px;
+      font-weight: 500;
+      line-height: 1.02;
+    }
+
+    .intro p:last-child {
+      max-width: 490px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .weeks { border-top: 1px solid var(--line); }
+
+    .week {
+      border-bottom: 1px solid var(--line);
+      animation: arrive .45s ease-out both;
+    }
+
+    .week:nth-child(2) { animation-delay: .06s; }
+    .week:nth-child(3) { animation-delay: .12s; }
+    .week:nth-child(4) { animation-delay: .18s; }
+
+    .week summary {
+      display: grid;
+      grid-template-columns: 64px 1fr auto 24px;
+      align-items: center;
+      gap: 18px;
+      min-height: 92px;
+      padding: 16px 8px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .week summary::-webkit-details-marker { display: none; }
+    .week summary:hover .week-title { color: var(--green); }
+    .week summary:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+    .week-number {
+      color: var(--coral);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+    }
+
+    .week-title { font-size: 19px; font-weight: 700; }
+
+    .week-meta {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .chevron {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-3px);
+      transition: transform .2s ease;
+    }
+
+    details[open] .chevron { transform: rotate(225deg) translate(-2px, -1px); }
+
+    .exercise-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 28px;
+      padding: 0 28px 24px 90px;
+    }
+
+    .exercise-list a {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 0;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .exercise-list a:hover { color: var(--coral); }
+    .exercise-list a:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+    .exercise-index {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+    }
+
+    .track-title {
+      grid-column: 1 / -1;
+      margin: 18px 0 3px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    footer {
+      width: min(100% - 40px, 960px);
+      margin: 0 auto;
+      padding: 18px 0 26px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 620px) {
+      main { padding-top: 52px; }
+      h1 { font-size: 44px; }
+      .week summary { grid-template-columns: 44px 1fr 20px; gap: 12px; }
+      .week-meta { display: none; }
+      .week-title { font-size: 17px; }
+      .exercise-list { grid-template-columns: 1fr; padding-left: 56px; padding-right: 8px; }
+      .track-title { grid-column: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">W</span> WEB PROGRAMMING</div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Course archive · K0126002</p>
+      <h1 id="page-title">Learn by<br>building.</h1>
+      <p>Weekly exercises and assignments, collected in one place. Choose a week to open its work.</p>
+    </section>
+
+    <section aria-labelledby="weeks-heading">
+      <div class="section-heading">
+        <h2 id="weeks-heading">Course work</h2>
+        <span>4 collections</span>
+      </div>
+
+      <div class="weeks">
+        <details class="week">
+          <summary>
+            <span class="week-number">01</span>
+            <span class="week-title">HTML Foundations</span>
+            <span class="week-meta">8 exercises</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="exercise-list">
+            <a href="web_html_ez-main/heading_and_emphasis.html"><span class="exercise-index">01</span>Heading and emphasis</a>
+            <a href="web_html_ez-main/html_basics_metadata.html"><span class="exercise-index">02</span>HTML basics and metadata</a>
+            <a href="web_html_ez-main/html.sekeletion.html"><span class="exercise-index">03</span>HTML skeleton</a>
+            <a href="web_html_ez-main/img_gallarey.html"><span class="exercise-index">04</span>Image gallery</a>
+            <a href="web_html_ez-main/navigationlist.html"><span class="exercise-index">05</span>Navigation list</a>
+            <a href="web_html_ez-main/nestedlists.html"><span class="exercise-index">06</span>Nested lists</a>
+            <a href="web_html_ez-main/page.html"><span class="exercise-index">07</span>Portfolio page</a>
+            <a href="web_html_ez-main/week2.html"><span class="exercise-index">08</span>HTML practice page</a>
+          </div>
+        </details>
+
+        <details class="week">
+          <summary>
+            <span class="week-number">02</span>
+            <span class="week-title">Semantic HTML</span>
+            <span class="week-meta">25 topics</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="exercise-list">
+            <a href="week 2 web programming/topic-01-what-is-semantic-html.html"><span class="exercise-index">01</span>What is Semantic HTML?</a>
+            <a href="week 2 web programming/topic-02-page-section-header.html"><span class="exercise-index">02</span>Page and section header</a>
+            <a href="week 2 web programming/topic-03-navigation-landmark.html"><span class="exercise-index">03</span>Navigation landmark</a>
+            <a href="week 2 web programming/topic-04-the-main-content.html"><span class="exercise-index">04</span>The main content</a>
+            <a href="week 2 web programming/topic-05-page-section-footer.html"><span class="exercise-index">05</span>Page and section footer</a>
+            <a href="week 2 web programming/topic-06-thematic-grouping.html"><span class="exercise-index">06</span>Thematic grouping</a>
+            <a href="week 2 web programming/topic-07-self-contained-content.html"><span class="exercise-index">07</span>Self-contained content</a>
+            <a href="week 2 web programming/topic-08-tangentially-related-content.html"><span class="exercise-index">08</span>Tangentially related content</a>
+            <a href="week 2 web programming/topic-09-the-non-semantic-container.html"><span class="exercise-index">09</span>The non-semantic container</a>
+            <a href="week 2 web programming/topic-10-self-contained-figure.html"><span class="exercise-index">10</span>Self-contained figure</a>
+            <a href="week 2 web programming/topic-11-caption-for-figure.html"><span class="exercise-index">11</span>Caption for a figure</a>
+            <a href="week 2 web programming/topic-12-machine-readable-dates.html"><span class="exercise-index">12</span>Machine-readable dates</a>
+            <a href="week 2 web programming/topic-13-contact-information.html"><span class="exercise-index">13</span>Contact information</a>
+            <a href="week 2 web programming/topic-14-highlighted-text.html"><span class="exercise-index">14</span>Highlighted text</a>
+            <a href="week 2 web programming/topic-15-abbreviations.html"><span class="exercise-index">15</span>Abbreviations</a>
+            <a href="week 2 web programming/topic-16-block-quotation.html"><span class="exercise-index">16</span>Block quotation</a>
+            <a href="week 2 web programming/topic-17-inline-quotation.html"><span class="exercise-index">17</span>Inline quotation</a>
+            <a href="week 2 web programming/topic-18-title-of-a-work.html"><span class="exercise-index">18</span>Title of a work</a>
+            <a href="week 2 web programming/topic-19-inline-code.html"><span class="exercise-index">19</span>Inline code</a>
+            <a href="week 2 web programming/topic-20-preformatted-text.html"><span class="exercise-index">20</span>Preformatted text</a>
+            <a href="week 2 web programming/topic-21-disclosure-widget.html"><span class="exercise-index">21</span>Disclosure widget</a>
+            <a href="week 2 web programming/topic-22-popup-modal.html"><span class="exercise-index">22</span>Popup and modal</a>
+            <a href="week 2 web programming/topic-23-aria-role-attribute.html"><span class="exercise-index">23</span>ARIA role attribute</a>
+            <a href="week 2 web programming/topic-24-semantic-landmarks-accessibility.html"><span class="exercise-index">24</span>Semantic landmarks and accessibility</a>
+            <a href="week 2 web programming/topic-25-complete-semantic-page-all-together.html"><span class="exercise-index">25</span>Complete semantic page</a>
+          </div>
+        </details>
+
+        <details class="week">
+          <summary>
+            <span class="week-number">03</span>
+            <span class="week-title">Web Programming Assignments</span>
+            <span class="week-meta">4 tracks · 32 exercises</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="exercise-list">
+            <h3 class="track-title">Assignments</h3>
+            <a href="Akhmad Web week 3/assignment1.html"><span class="exercise-index">01</span>Assignment 1</a>
+            <a href="Akhmad Web week 3/assignment2.html"><span class="exercise-index">02</span>Assignment 2</a>
+            <a href="Akhmad Web week 3/assignment3.html"><span class="exercise-index">03</span>Assignment 3</a>
+            <a href="Akhmad Web week 3/assignment4.html"><span class="exercise-index">04</span>Assignment 4</a>
+            <a href="Akhmad Web week 3/assignment5.html"><span class="exercise-index">05</span>Assignment 5</a>
+            <a href="Akhmad Web week 3/assignment6.html"><span class="exercise-index">06</span>Assignment 6</a>
+            <a href="Akhmad Web week 3/assignment7.html"><span class="exercise-index">07</span>Assignment 7</a>
+            <a href="Akhmad Web week 3/assignment8.html"><span class="exercise-index">08</span>Assignment 8</a>
+
+            <h3 class="track-title">Web Programming 1</h3>
+            <a href="Akhmad Web week 3/web programming 1/assignment1.html"><span class="exercise-index">01</span>Assignment 1</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment2.html"><span class="exercise-index">02</span>Assignment 2</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment3.html"><span class="exercise-index">03</span>Assignment 3</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment4.html"><span class="exercise-index">04</span>Assignment 4</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment5.html"><span class="exercise-index">05</span>Assignment 5</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment6.html"><span class="exercise-index">06</span>Assignment 6</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment7.html"><span class="exercise-index">07</span>Assignment 7</a>
+            <a href="Akhmad Web week 3/web programming 1/assignment8.html"><span class="exercise-index">08</span>Assignment 8</a>
+
+            <h3 class="track-title">Web Assignment 2</h3>
+            <a href="Akhmad Web week 3/web assignment 2/task1.html"><span class="exercise-index">01</span>Task 1</a>
+            <a href="Akhmad Web week 3/web assignment 2/task2.html"><span class="exercise-index">02</span>Task 2</a>
+            <a href="Akhmad Web week 3/web assignment 2/task3.html"><span class="exercise-index">03</span>Task 3</a>
+            <a href="Akhmad Web week 3/web assignment 2/task4.html"><span class="exercise-index">04</span>Task 4</a>
+            <a href="Akhmad Web week 3/web assignment 2/task5.html"><span class="exercise-index">05</span>Task 5</a>
+            <a href="Akhmad Web week 3/web assignment 2/task6.html"><span class="exercise-index">06</span>Task 6</a>
+            <a href="Akhmad Web week 3/web assignment 2/task7.html"><span class="exercise-index">07</span>Task 7</a>
+            <a href="Akhmad Web week 3/web assignment 2/task8.html"><span class="exercise-index">08</span>Task 8</a>
+
+            <h3 class="track-title">Web Programming 3</h3>
+            <a href="Akhmad Web week 3/web-programming 3/task1.html"><span class="exercise-index">01</span>Task 1</a>
+            <a href="Akhmad Web week 3/web-programming 3/task2.html"><span class="exercise-index">02</span>Task 2</a>
+            <a href="Akhmad Web week 3/web-programming 3/task3.html"><span class="exercise-index">03</span>Task 3</a>
+            <a href="Akhmad Web week 3/web-programming 3/task4.html"><span class="exercise-index">04</span>Task 4</a>
+            <a href="Akhmad Web week 3/web-programming 3/task5.html"><span class="exercise-index">05</span>Task 5</a>
+            <a href="Akhmad Web week 3/web-programming 3/task6.html"><span class="exercise-index">06</span>Task 6</a>
+            <a href="Akhmad Web week 3/web-programming 3/task7.html"><span class="exercise-index">07</span>Task 7</a>
+            <a href="Akhmad Web week 3/web-programming 3/task8.html"><span class="exercise-index">08</span>Task 8</a>
+          </div>
+        </details>
+
+        <details class="week">
+          <summary>
+            <span class="week-number">03F</span>
+            <span class="week-title">CSS Advanced · Friday</span>
+            <span class="week-meta">7 exercises</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="exercise-list">
+            <a href="Akhmad Web Programming W3 Friday/exercise-1-position-badge.html"><span class="exercise-index">01</span>Position badge</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-2-hover-card.html"><span class="exercise-index">02</span>Hover card</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-3-loading-spinner.html"><span class="exercise-index">03</span>Loading spinner</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-4-css-variables-theme.html"><span class="exercise-index">04</span>CSS variables and theme</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-5-fixed-nav-bar.html"><span class="exercise-index">05</span>Fixed navigation bar</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-6-responsive-grid.html"><span class="exercise-index">06</span>Responsive grid</a>
+            <a href="Akhmad Web Programming W3 Friday/exercise-7-portfolio-page.html"><span class="exercise-index">07</span>Portfolio page</a>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>Web Programming · Course archive</footer>
+</body>
+</html>
