@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 1 — Update the page</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 4</a><p class="week-kicker">WEEK 04 / EXERCISE 01</p><h1>Update the page</h1></header>
+    <article class="exercise-content">
+      <p>The DOM represents the document as objects JavaScript can inspect and change. Click the button to update the heading.</p>
+      <section class="demo-card"><p class="demo-label">INTERACTIVE EXAMPLE</p><h2 id="message">The page is ready</h2><button id="update-button" type="button">Update message</button><p class="demo-output" id="update-status" aria-live="polite"></p></section>
+      <pre class="code-block"><code>const message = document.querySelector("#message");
+const button = document.querySelector("#update-button");
+
+button.addEventListener("click", () =&gt; {
+  message.textContent = "The DOM has been updated!";
+});</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 4</a><span class="footer-note">DOM SELECTION</span></footer>
+  </main>
+  <script>
+    const message = document.querySelector("#message");
+    document.querySelector("#update-button").addEventListener("click", () => {
+      message.textContent = "The DOM has been updated!";
+      document.querySelector("#update-status").textContent = "Button click handled successfully.";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 3 — Responsive CSS Grid</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .grid-demo { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+    .grid-demo article { min-height: 100px; display: grid; place-items: center; border: 1px solid #dce0d3; border-radius: 8px; background: #eef1e6; color: #455234; font-size: 12px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 3</a><p class="week-kicker">WEEK 03 / EXERCISE 03</p><h1>Responsive CSS Grid</h1></header>
+    <article class="exercise-content">
+      <p>CSS Grid lays content out in rows and columns. Combining <code>auto-fit</code> and <code>minmax()</code> lets the browser choose how many cards fit without a breakpoint for every screen size.</p>
+      <section class="demo-card"><p class="demo-label">LIVE EXAMPLE</p><div class="grid-demo"><article>HTML</article><article>CSS</article><article>JavaScript</article><article>Web APIs</article></div></section>
+      <pre class="code-block"><code>.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(130px, 1fr)
+  );
+  gap: 10px;
+}</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 3</a><span class="footer-note">CSS GRID</span></footer>
+  </main>
+</body>
+</html>

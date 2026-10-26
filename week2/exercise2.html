@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 2 — Semantic page layout</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header">
+      <a class="back-link" href="index.html">← Back to Week 2</a>
+      <p class="week-kicker">WEEK 02 / EXERCISE 02</p>
+      <h1>Semantic page layout</h1>
+    </header>
+    <article class="exercise-content">
+      <p>Semantic landmarks describe the purpose of each region. They make a page easier to navigate for people and easier to understand in code.</p>
+      <section class="demo-card">
+        <p class="demo-label">LIVE EXAMPLE</p>
+        <header><h2>Field Notes</h2></header>
+        <nav aria-label="Example navigation"><a href="#article">Journal</a> · <a href="#about">About</a></nav>
+        <section id="article"><h3>A small observation</h3><p>Short sections make long-form content easier to scan.</p></section>
+        <footer><small>Published for the HTML foundations exercise.</small></footer>
+      </section>
+      <pre class="code-block"><code>&lt;header&gt;
+  &lt;h1&gt;Field Notes&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav aria-label="Main navigation"&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;A small observation&lt;/h2&gt;
+    &lt;p&gt;The article content goes here.&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 2</a><span class="footer-note">SEMANTIC HTML</span></footer>
+  </main>
+</body>
+</html>

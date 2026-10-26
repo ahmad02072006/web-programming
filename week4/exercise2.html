@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 2 — Listen for a click</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 4</a><p class="week-kicker">WEEK 04 / EXERCISE 02</p><h1>Listen for a click</h1></header>
+    <article class="exercise-content">
+      <p>An event listener runs a function when an event occurs. This example toggles a detail panel and keeps its accessible expanded state in sync.</p>
+      <section class="demo-card"><p class="demo-label">INTERACTIVE EXAMPLE</p><button id="toggle-button" type="button" aria-expanded="false" aria-controls="details">Show details</button><div id="details" hidden><p>This panel appears when its button is activated. Activate the button again to hide it.</p></div></section>
+      <pre class="code-block"><code>button.addEventListener("click", () =&gt; {
+  const isOpen = button.getAttribute("aria-expanded") === "true";
+  button.setAttribute("aria-expanded", String(!isOpen));
+  panel.hidden = isOpen;
+});</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 4</a><span class="footer-note">EVENTS</span></footer>
+  </main>
+  <script>
+    const toggleButton = document.querySelector("#toggle-button");
+    const details = document.querySelector("#details");
+    toggleButton.addEventListener("click", () => {
+      const isOpen = toggleButton.getAttribute("aria-expanded") === "true";
+      toggleButton.setAttribute("aria-expanded", String(!isOpen));
+      toggleButton.textContent = isOpen ? "Show details" : "Hide details";
+      details.hidden = isOpen;
+    });
+  </script>
+</body>
+</html>

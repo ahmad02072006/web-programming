@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 3 — Counter mini-app</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 5</a><p class="week-kicker">WEEK 05 / EXERCISE 03</p><h1>Counter mini-app</h1></header>
+    <article class="exercise-content">
+      <p>Use a number variable to hold application state, then update the page whenever a button changes it. The value can increase, decrease, or return to zero.</p>
+      <section class="demo-card"><p class="demo-label">WORKING COUNTER</p><p class="counter-value" id="counter-value" aria-live="polite">0</p><div class="counter-controls"><button type="button" id="decrement">− Decrease</button><button type="button" id="increment">+ Increase</button><button type="button" id="reset" class="secondary">Reset</button></div></section>
+      <pre class="code-block"><code>let count = 0;
+
+function renderCount() {
+  counter.textContent = count;
+}
+
+increment.addEventListener("click", () =&gt; {
+  count += 1;
+  renderCount();
+});</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 5</a><span class="footer-note">MINI-APP</span></footer>
+  </main>
+  <script>
+    let count = 0;
+    const counterValue = document.querySelector("#counter-value");
+    const renderCount = () => { counterValue.textContent = String(count); };
+    document.querySelector("#increment").addEventListener("click", () => { count += 1; renderCount(); });
+    document.querySelector("#decrement").addEventListener("click", () => { count -= 1; renderCount(); });
+    document.querySelector("#reset").addEventListener("click", () => { count = 0; renderCount(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 2 — Loops and arrays</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 5</a><p class="week-kicker">WEEK 05 / EXERCISE 02</p><h1>Loops and arrays</h1></header>
+    <article class="exercise-content">
+      <p>A loop repeats an operation for each item. This example filters a list of workshop topics and renders each matching item as a list entry.</p>
+      <section class="demo-card"><p class="demo-label">LIVE OUTPUT</p><h2>Topics with JavaScript</h2><ul class="demo-list" id="topic-list"></ul></section>
+      <pre class="code-block"><code>const topics = ["HTML", "CSS", "JavaScript", "Web APIs"];
+const matches = topics.filter((topic) =&gt;
+  topic.includes("JavaScript")
+);
+
+for (const topic of matches) {
+  // Create and append a list item for each match.
+}</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 5</a><span class="footer-note">LOOPS &amp; ARRAYS</span></footer>
+  </main>
+  <script>
+    const topics = ["HTML", "CSS", "JavaScript", "JavaScript DOM", "Web APIs"];
+    const topicList = document.querySelector("#topic-list");
+    for (const topic of topics.filter((item) => item.includes("JavaScript"))) {
+      const listItem = document.createElement("li");
+      listItem.textContent = topic;
+      topicList.append(listItem);
+    }
+  </script>
+</body>
+</html>

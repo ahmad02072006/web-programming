@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 3 — Read a form input</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 4</a><p class="week-kicker">WEEK 04 / EXERCISE 03</p><h1>Read a form input</h1></header>
+    <article class="exercise-content">
+      <p>Listen for the form's submit event to respond to keyboard and button submissions alike. The example uses a label and a live region for accessible feedback.</p>
+      <section class="demo-card"><p class="demo-label">INTERACTIVE EXAMPLE</p><form id="greeting-form"><label for="name-input">Your name</label><div class="demo-row" style="margin-top:10px"><input class="demo-input" id="name-input" name="name" autocomplete="given-name" required maxlength="40" placeholder="e.g. Alex"><button type="submit">Say hello</button></div></form><p class="demo-output" id="greeting" aria-live="polite"></p></section>
+      <pre class="code-block"><code>form.addEventListener("submit", (event) =&gt; {
+  event.preventDefault();
+  const name = input.value.trim();
+  output.textContent = `Hello, ${name}!`;
+});</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 4</a><span class="footer-note">FORM EVENTS</span></footer>
+  </main>
+  <script>
+    const greetingForm = document.querySelector("#greeting-form");
+    const nameInput = document.querySelector("#name-input");
+    greetingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = nameInput.value.trim();
+      document.querySelector("#greeting").textContent = `Hello, ${name}!`;
+    });
+  </script>
+</body>
+</html>

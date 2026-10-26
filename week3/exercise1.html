@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 1 — Type, color, and spacing</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .styled-card { max-width: 380px; padding: 24px; border: 1px solid #d9ddcf; border-radius: 14px; background: #f7f9f1; box-shadow: 0 12px 25px #29351b12; }
+    .styled-card .tag { color: #4d641d; font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .styled-card h2 { margin: 13px 0 8px; color: #202b17; font-size: 25px; letter-spacing: -.06em; }
+    .styled-card p { margin: 0; color: #62695b; }
+  </style>
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 3</a><p class="week-kicker">WEEK 03 / EXERCISE 01</p><h1>Type, color, and spacing</h1></header>
+    <article class="exercise-content">
+      <p>CSS rules select elements and apply visual properties. Padding creates space inside a box; margin creates space outside it; borders and shadows add separation.</p>
+      <section class="demo-card"><p class="demo-label">LIVE EXAMPLE</p><article class="styled-card"><span class="tag">Field note 01</span><h2>Look closer</h2><p>A little whitespace gives the important details room to breathe.</p></article></section>
+      <pre class="code-block"><code>.card {
+  padding: 24px;
+  border: 1px solid #d9ddcf;
+  border-radius: 14px;
+  background: #f7f9f1;
+  box-shadow: 0 12px 25px #29351b12;
+}
+
+.card h2 {
+  margin: 13px 0 8px;
+  color: #202b17;
+  font-size: 25px;
+}</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 3</a><span class="footer-note">CSS BASICS</span></footer>
+  </main>
+</body>
+</html>

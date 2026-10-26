@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exercise 2 — Flexbox navigation</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .flex-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-radius: 9px; background: #252a22; color: #fff; }
+    .flex-nav strong { font-size: 14px; }
+    .flex-nav-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .flex-nav a { color: #e7eccf; font-size: 12px; text-decoration: none; }
+    .flex-nav a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="content-shell">
+    <header class="week-header exercise-header"><a class="back-link" href="index.html">← Back to Week 3</a><p class="week-kicker">WEEK 03 / EXERCISE 02</p><h1>Flexbox navigation</h1></header>
+    <article class="exercise-content">
+      <p>Flexbox is useful for one-dimensional layouts. Here, the logo and navigation links stay aligned while wrapping cleanly when the available width is small.</p>
+      <section class="demo-card"><p class="demo-label">LIVE EXAMPLE</p><nav class="flex-nav" aria-label="Sample"><strong>Studio</strong><div class="flex-nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav></section>
+      <pre class="code-block"><code>.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}</code></pre>
+    </article>
+    <footer class="site-footer content-footer"><a class="back-link" href="index.html">← Back to Week 3</a><span class="footer-note">FLEXBOX</span></footer>
+  </main>
+</body>
+</html>
